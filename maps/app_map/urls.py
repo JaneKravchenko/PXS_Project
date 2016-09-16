@@ -1,9 +1,10 @@
 from django.conf.urls import url, include
 from django.contrib import admin
-
+from .views import MyView
 
 from .views import index
 
-urlpatterns = [url(r'^$', index),
+urlpatterns = [url(r'^$',index),
 
                ]
+
