@@ -1,28 +1,47 @@
+# coding=utf-8
 from django.shortcuts import render
 
 # Create your views here.
 
 # Create your views here.
 from django.views.generic.detail import DetailView
-from app_map.models import WorldBorderl
-from.forms import MarketEntryForm
+
+from .models import Cnotozymi
+
+from django.shortcuts import render_to_response, get_object_or_404
+from django.contrib.gis.geos import GEOSGeometry
 
 
-from django.shortcuts import render_to_response
+def home(request):
+
+        cnotozymi = Cnotozymi.objects.get(geom__within = GEOSGeometry('POINT(48.36454 30.69134)', srid=4326))
+        context = {
+            'cnotozymi': cnotozymi
+        }
+
+
+
+
+
+        return render(request, "base.html", context)
+
+
+def project(request):
+    cnotozymi = Cnotozymi.objects.filter(gid=2)
+    context = {
+        'cnotozymi': cnotozymi
+    }
+
+    return render(request, 'project.html', context)
+
+
+def help(request):
+    return render_to_response('help.html', {})
+
 
 def index(request):
-    'Display map'
-    return render_to_response('base.html', {
-    })
+    return render_to_response('base.html', {})
+
 
 def base(request):
-
-
     return
-
-
-class MyView(DetailView):
-
-    model = WorldBorderl
-    form = MarketEntryForm
-    template_name = "picture.html"
