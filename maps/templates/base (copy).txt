@@ -4,7 +4,6 @@
 <head>
   <title>OpenLayers Example</title>
 
-
      <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
     <script
     src="http://openlayers.org/api/OpenLayers.js"></script>
@@ -16,10 +15,6 @@
     <script src="google-v3-alloverlays.js"></script>
     <link rel="stylesheet" media="all" href="{% static "main.css" %}" type="text/css">
     <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAINgesJb4VJ2iYHIcc-gT7hQGhS5yCmtMNZMUBKgpbJFW2uH_cRSd35D9AE7VSWY096Cd7dLkCk3bRA" type="text/javascript" encoding="utf-8"></script>
-<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
-
-
 
     </head>
     <body>
@@ -75,8 +70,6 @@
       <script defer="defer" type="text/javascript">
 
 
-
-
             var checkList = document.getElementById('list');
         checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
             if (checkList.classList.contains('visible'))
@@ -89,7 +82,9 @@
         checkList.onblur = function(evt) {
             checkList.classList.add('visible');
         };
-        var map = new OpenLayers.Map('map');
+
+
+          var map = new OpenLayers.Map('map');
         var baseUrl = window.location.protocol + '//' + window.location.host;
         map.addControl(new OpenLayers.Control.LayerSwitcher({'ascending':false}));
 
@@ -182,24 +177,9 @@ var check1 = document.querySelector('#kukuruza');
             map.removeLayer(tiled);
          }
         };
-        var data = NaN;
 
-            var a = function get_popup(lonlat,data){
-            popup = new OpenLayers.Popup.FramedCloud("chicken",
-                       new OpenLayers.LonLat(lonlat.lon, lonlat.lat),
-                        null,
-                          data,
-                    null,
-
-                       true);
-
-             map.addPopup(popup);
-             return popup
-        };
-
-          OpenLayers.Control.Click = OpenLayers.Class(OpenLayers.Control, {
+           OpenLayers.Control.Click = OpenLayers.Class(OpenLayers.Control, {
                 defaultHandlerOptions: {
-
                     'single': true,
                     'double': false,
                     'pixelTolerance': 0,
@@ -230,52 +210,21 @@ var check1 = document.querySelector('#kukuruza');
 
 
                     var lonlat = map.getLonLatFromPixel(e.xy);
-                    var pixel = map.getPixelFromLonLat(lonlat);
-                    var event = {
-                        lonlat:lonlat
-                    };
-                    var jso = JSON.stringify(event);
+                    popup = new OpenLayers.Popup("chicken",
+                       new OpenLayers.LonLat(lonlat.lon, lonlat.lat),
+                        new OpenLayers.Size(200,200),
+                            '{{ cnotozymi }}'
 
 
+                            ,
+                       true);
 
 
-var result;
-
-$.ajax({
-    url:"req/",
-    type: "GET",
-
-    data: jso,
-    async: false,
-
-    success: function(response) {
-        result = this.responseText;
-        $('#mm').html(response);
-
-  },
-    complete:function(xhr, status){
-
-
-
-
-    },
-    error:function (xhr, textStatus, thrownError){
-        console.log(error);
-    }
-});
-
-a(lonlat,"<div>"+  document.getElementById('mm').outerHTML+  "</div>")
-
-
-
-
-
-
+    map.addPopup(popup);
 
                 }
 
             });
-
 
      var click = new OpenLayers.Control.Click();
                 map.addControl(click);
@@ -288,10 +237,10 @@ a(lonlat,"<div>"+  document.getElementById('mm').outerHTML+  "</div>")
  {% endblock %}
 
 </div>
-<p id = "mm" >
 
-</p>
-
+<div id="nodelist" style = 'position: absolute; left:0; top:0; width:30px; height:50px'>
+            <em>Click on the map to get feature info</em>
+        </div>
 
 
 </div>

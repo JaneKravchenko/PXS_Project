@@ -25,7 +25,7 @@ SECRET_KEY = '=l-#23#pd!+t#%+*6199l^5r7rf-wcs5_=jlio+i3c#$-v55y-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["http://localhost:8080"]
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.gis',
+    'django.contrib.gis','httpproxy',
     'geoportal',
     'app_map',
 ]

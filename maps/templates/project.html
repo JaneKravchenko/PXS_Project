@@ -1,0 +1,18 @@
+<meta charset="utf-8">
+
+<div id = "content">
+{% block content %}
+
+    {% if notobject %}
+        {{ notobject }}
+    {% endif %}
+{% if object %}
+
+    <p>Айди: {{ object.gid }}</p>
+        <p>Кульрура: {{ object.crop }}</p>
+        <p>Площа поля: {{ object.s_ga}}</p>
+{% endif %}
+
+{% endblock %}
+
+</div>

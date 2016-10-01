@@ -131,7 +131,3 @@ img{
 .olControlsMousePosition{
        background: rgba(4, 0, 104, 0.29);
     }
-
-#mm{
-    position: inherit;
-}

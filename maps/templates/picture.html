@@ -1,56 +1,60 @@
+<!DOCTYPE html>
 <html>
-   <head>
-         <title>Counties of Colorado</title>
-         <link rel="stylesheet" href="lib/openlayers/theme/default/style.css" type="text/css">
-         <style>
-                 #map-id {
-                         width: 512px;
-                         height: 300px;
-                 }
-         </style>
-         <script src="lib/openlayers/OpenLayers.js"></script>
-        </head>
-        <body>
-         <h1>Counties of Colorado</h1>
-         <div id="map-id"></div>
-         <script>
-                 var bounds = new OpenLayers.Bounds(
-                        -109.06, 36.992,
-                        -102.041, 41.003
-                 );
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>OpenLayers: WMS + Time</title>
+    <link rel="stylesheet" href="../theme/default/style.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="../OpenLayers.js"></script>
+    <script type="text/javascript">
+        var map, ia_wms;
+        function init(){
+            map = new OpenLayers.Map('map');
 
-                 var options = {
-                                 controls: [],
-                                 maxExtent: bounds,
-                                 maxResolution: 0.02741796875,
-                                 projection: "EPSG:4269",
-                                 units: 'm'
-                 };
+            var ol_wms = new OpenLayers.Layer.WMS( "OpenLayers WMS",
+                "http://vmap0.tiles.osgeo.org/wms/vmap0?", {layers: 'basic'} );
 
-                 map = new OpenLayers.Map('map-id', options);
+            var jpl_wms = new OpenLayers.Layer.WMS( "NASA Global Mosaic",
+                "http://t1.hypercube.telascience.org/cgi-bin/landsat7",
+                {layers: "landsat7"});
 
-                 var ccounties = new OpenLayers.Layer.WMS(
-                                 "Counties of Colorado - Untiled", "http://localhost:8083/geoserver/wms",
-                                 {
-                                         srs: 'EPSG:4269',
-                                         layers: 'geosolutions:Counties',
-                                         styles: '',
-                                         format:'image/png'
-                                 },
-                                 {singleTile: true, ratio: 1}
-                 );
+            ia_wms = new OpenLayers.Layer.WMS("Nexrad","http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r-t.cgi?",{layers:"nexrad-n0r-wmst",transparent:true,format:'image/png',time:"2005-08-29T13:00:00Z"});
 
-                 map.addLayer(ccounties);
+            jpl_wms.setVisibility(false);
 
-                 // build up all controls
-                 map.addControl(new OpenLayers.Control.PanZoomBar({
-                         position: new OpenLayers.Pixel(2, 15)
-                 }));
-                 map.addControl(new OpenLayers.Control.Navigation());
-                 map.addControl(new OpenLayers.Control.Scale());
-                 map.addControl(new OpenLayers.Control.MousePosition());
-                 map.zoomToExtent(bounds);
+            map.addLayers([ol_wms, jpl_wms, ia_wms]);
+            map.addControl(new OpenLayers.Control.LayerSwitcher());
+            map.zoomToExtent(new OpenLayers.Bounds(-100.898437,22.148438,-78.398437,39.726563));
+        }
+        function update_date() {
+            var string = OpenLayers.Util.getElement('year').value + "-" +
+                         OpenLayers.Util.getElement('month').value + "-" +
+                         OpenLayers.Util.getElement('day').value + "T" +
+                         OpenLayers.Util.getElement('hour').value + ":" +
+                         OpenLayers.Util.getElement('minute').value + ":00";
+            ia_wms.mergeNewParams({'time':string});
 
-         </script>
-        </body>
+        }
+    </script>
+  </head>
+  <body onload="init()">
+     <h1 id="title"> WMS Time Example</h1>
+        <div id="tags">
+            wmst, wms-t
+        </div>
+        <p id="shortdesc">
+            Shows the use of the layer WMS-T (time) layer</a>
+        </p>
+    <input size="4" type='text' id='year' value="2005" onchange="update_date()"/>-<input size="2" type="text" id="month" value="08" onchange="update_date()"/>-<input size="2" type="text" id="day" value="29" onchange="update_date()" />T<input type="text" size="2" id="hour" value="13" onchange="update_date()" />:<input type="text" size="2" id="minute" value="00" onchange="update_date()" />:00
+    <div id="map" class="smallmap"></div>
+    <div id="docs">
+        <p>WMS-T example: update the times, and the radar image will change.
+        Uses Layer.mergeNewParams to update the date element with the strings
+        from the input fields every time one of them is changed. The inputs
+        above describe a timestamp: The minute increments can only be updated
+        in units of 5.</p>
+    </div>
+  </body>
 </html>
