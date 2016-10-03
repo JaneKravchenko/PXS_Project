@@ -1,13 +1,13 @@
 div{
-background-color: rgba(94, 97, 74, 0);
+background-image: url("/app_map/static/overlay.png");!important;
 }
 
 .map{
-    position: absolute;
-    left:20%;
-    top:12%;
-    width: 80%;
-    height:85%;
+    position: fixed;
+    left:233px;
+    top:63px;
+    width: 83%;
+    height:90%;
 
 
 
@@ -17,19 +17,20 @@ background-color: rgba(94, 97, 74, 0);
 
 
 a{
-    margin-bottom: 15px;
-    background-color: rgba(160, 175, 101, 0); /* Green */
-    border: navajowhite;
-    color: #008007;
-    padding: 15px 32px;
-    text-align: center;
-    display: inline-block;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; !important
+    margin-bottom: 15px;!important
+
+    border: navajowhite;!important
+    color: #008007;!important
+    padding: 15px 32px;!important
+    text-align: center;!important
+    display: inline-block;!important
 
 
 
     text-underline-color: #008007;
-    position: relative;
-    text-decoration: solid;
+    position: relative;!important
+    text-decoration: solid;!important
 
 
 }
@@ -56,6 +57,7 @@ img{
 
 }
 .dropdown-check-list {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     position: absolute;
     top:75px;
     left:5px;
@@ -103,6 +105,7 @@ img{
   top: 21%;z-index: 0;
 }
 .dropdown-check-list ul.items {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     background-color: rgba(255, 253, 177, 0);
     color: #003a01;
   padding: 2px;
@@ -112,26 +115,191 @@ img{
   border-top: none;z-index: 0;
 }
 .dropdown-check-list ul.items li {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     background-color: rgba(255, 253, 177, 0);
     color: #003a01;
   list-style: none;z-index: 0;
 }
 .dropdown-check-list.visible .anchor {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     background-color: rgba(255, 253, 177, 0);
     color: #003a01;
  z-index: 0;
 }
 .dropdown-check-list.visible .items {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     background-color: rgba(255, 253, 177, 0);
     color: #003a01;
   display: block;z-index: 0;
 }
 
 
-.olControlsMousePosition{
-       background: rgba(4, 0, 104, 0.29);
+.olControlMousePosition{
+       color: #000000; !important;
+       background-color: rgba(197, 198, 193, 0.24);!important
     }
 
 #mm{
     position: inherit;
 }
+
+.olPopup
+{
+
+	overflow:inherit;
+}
+
+.olPopup *
+
+{
+
+    font-family: "Open Sans", Arial, Helvetica, Sans-Serif, serif;
+    color: #33805c;
+	margin: 0px;
+	padding:0px;
+	font-size: 14px;
+}
+
+.olPopup a.close
+{
+    background-color: rgba(235, 218, 12, 0.29); !important
+	width: 14px;
+	height: 14px;
+	position: absolute;
+	top: 10px;
+	right: 28px;
+
+	margin: 0px;
+	font-size: 1px;
+	padding: 0px;
+}
+
+.olPopup a.close:hover
+{
+	background:rgba(104, 54, 48, 0.29);
+}
+
+.olPopupContent
+{
+
+	min-width:200px;
+    color: darkblue; !important
+	background-color: #ff09c4; !important
+	padding: 1px !important;
+	margin: 0px !important;
+	font-size: 0.80em;
+}
+
+.olPopup .olPopupContent h2
+{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	font-size: larger;
+	text-align: center;
+	padding: 2px 0px 2px 0px;
+	margin: 0px 6px 0px 6px;
+	text-transform:capitalize;
+}
+
+.olPopup .olPopupContent table
+{
+
+	border: solid;
+	overflow: auto;
+	padding: 0px;
+}
+
+.olPopupContent table td
+{
+
+	padding: 4px;
+	border: 3px solid #cccccc; !important
+}
+
+.olControlScaleLine{
+    color: #000000; !important;
+    background-color: rgba(197, 198, 193, 0.24);!important
+}
+.olControlLayerSwitcher {
+    background-color: transparent;
+    color: white;
+    font-family: sans-serif;
+    font-size: smaller;
+    font-weight: bold;
+    margin-bottom: 3px;
+    margin-left: 3px;
+    margin-top: 3px;
+    position: absolute;
+    right: 0;
+    top: 42px;
+    width: 20em;
+}
+
+div.olControlZoom a:hover{
+    background: rgba(23, 91, 14, 0.63); !important;
+}
+
+div.olControlZoom a, div.olControlTextButtonPanel .olButton{
+    background: #7cd260;!important;
+}
+
+#stat{
+    background-color: rgba(255, 255, 255, 0.4);
+    border: none;
+    color: rgba(0, 0, 0, 0.84);
+    position: absolute;
+    left: 313px;
+    top: 78px;
+}
+
+#cl{
+    background-color: rgba(255, 255, 255, 0.4);
+    border: none;
+    color: rgba(0, 0, 0, 0.84);
+    position: absolute;
+    left: 413px;
+    top: 78px;
+}
+
+
+#statistic{
+    background-color: rgba(255, 255, 255, 0.4);
+    border: none;
+    min-width: 250px;
+    position: absolute;
+    left: 290px;
+    top: 108px;
+}
+
+
+
+.olControlEditingToolbar .olControlDrawFeaturePointItemInactive{
+    visibility: hidden;!important;
+}
+
+.olControlNavToolbar div, .olControlEditingToolbar div{
+    margin: 0 300px 15px 15px; !important;
+}
+
+.olControlEditingToolbar .olControlDrawFeaturePolygonItemInactive{
+    position: absolute;
+    top: 10px;!important;
+
+}
+
+.olControlEditingToolbar .olControlDrawFeaturePolygonItemActive{
+    position: absolute;
+    top: 10px;!important;
+
+}
+.olControlEditingToolbar{
+    top:0;!important;
+    left: 50px;!important;
+}
+.olControlNavToolbar div, .olControlEditingToolbar div {
+    background-color: #00aa88;!important;
+    background-image: none;!important;
+    background-repeat: no-repeat;
+    margin: 0 0 300px 5px;!important;
+    width: 24px;
+    height: 22px;
+    cursor: pointer;}

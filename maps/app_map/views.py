@@ -13,7 +13,7 @@ from .models import Cnotozymi
 from django.views.generic import ListView
 from django.shortcuts import render_to_response
 from django.template.loader import get_template
-from django.contrib.gis.geos import GEOSGeometry
+from django.contrib.gis.geos import GEOSGeometry, Polygon
 from django.template import Context, Template
 import re
 import json
@@ -73,6 +73,9 @@ def project(request):
 def help(request):
     return render_to_response('help.html', {})
 
+def temp(request):
+    return render_to_response('temp.html', {})
+
 
 def index(request):
     return render_to_response('base.html', {})
@@ -80,3 +83,23 @@ def index(request):
 
 def base(request):
     return
+
+
+def statistic(request):
+    if request.GET.items() != []:
+        req = str(request.GET.items()[0])
+        search = re.findall('[\d]+\.[\d]+', str(req))
+
+        tuple_of_coordinates = []
+        print search
+        for i in range(0,len(search)-1,2):
+            tuple_of_coordinates.append((float(search[i]), float(search[i+1])))
+        queryset = Cnotozymi.objects.filter(
+            geom__distance_lte=(Polygon(tuple(tuple_of_coordinates)), D(m=0)))
+
+
+        pl = sum(map(lambda i: queryset[i].s_ga, range(len(queryset))))
+        type_fields =map(lambda i: queryset[i].crop, range(len(queryset)))
+
+        sum_harvest = sum(map(lambda i: queryset[i].harvest, range(len(queryset))))
+        return render_to_response("statistic.html", {"count": queryset.count(), "pl": pl, "harvest": sum_harvest})

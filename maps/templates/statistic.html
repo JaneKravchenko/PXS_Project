@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<table id = "tab" style="color: #000000; ">
+    <tr>
+    <th> </th>
+    <th></th>
+    </tr>
+    <tr>
+    <td>Кількість полів: {{ count }}</td>
+  </tr>
+    <tr>
+    <td>Загальна площа: {{ pl }}</td></tr>
+    <tr>
+    <td>Загальний збір: {{ harvest }}</td></tr>
+    <td><button onclick="clear_t()" style="background: transparent; border: transparent; color: #0D3349;">Приховати статистику</button></td>
+
+</table>
+
+<script>
+
+    function clear_t() {
+    document.getElementById('tab').innerHTML = '';
+        vlayer.destroyFeatures(vlayer.features[0]);
+
+}
+</script>
+</body>
+</html>
