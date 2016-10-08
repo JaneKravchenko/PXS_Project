@@ -1,0 +1,9 @@
+<meta charset="utf-8">
+{% extends 'base.html' %}
+
+{% block content %}
+<h3 style = "margin-top: 30px;!important; margin-left: 15px;!important;">Вітаємо Вас на нашому геопорталі!</h3>
+<h4 style = "margin-top: 30px;!important; margin-left: 15px;!important;">В цьому розділі ви можете дізнатись: 
+</h4>
+{% endblock %}
+

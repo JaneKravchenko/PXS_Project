@@ -81,6 +81,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'GIS',
+'OPTIONS': {
+        'options': '-c search_path=gis,public,pg_catalog'
+    },
         'USER': 'postgres',
         'PASSWORD': '1111',
         'HOST': 'localhost',

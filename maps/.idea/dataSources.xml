@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="4175154452">
+    <data-source source="LOCAL" name="PostgreSQL - GIS@localhost" uuid="c036a1e3-d561-48dc-8dab-92fb11d8794e">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/GIS</jdbc-url>
+    </data-source>
+  </component>
+</project>

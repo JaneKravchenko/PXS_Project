@@ -16,15 +16,9 @@
         <td>Кількість полів: {{ count }}</td>
       </tr>
         <tr>
-        <td>Загальна площа: {{ pl }} га</td></tr>
+        <td>Загальна площа: {{ pl }}</td></tr>
         <tr>
-        <td>Соя ({{ soya_cnt }} ): {{ soya_ha }} га</td></tr>
-        <tr>
-        <td>Кукурудза ({{ k_cnt }} ): {{ k_ha }} га</td></tr>
-        <tr>
-        <td>Соняшник ({{ son_cnt }}): {{ son_ha }} га</td></tr>
-        <tr>
-        <td>Інші культури ({{ in_cnt }} ): {{ in_ha }} га</td></tr>
+        <td>Загальний збір: {{ harvest }}</td></tr>
         <td><button onclick="clear_t()" style="background: transparent; border: transparent; color: #0D3349;">Приховати статистику</button></td>
 
     </table>

@@ -86,7 +86,7 @@ vcontrol = new OpenLayers.Control.EditingToolbar(vlayer);
 
             var a = function get_popup(lonlat,data){
             popup = new OpenLayers.Popup.FramedCloud("chicken",
-                       new OpenLayers.LonLat(lonlat.lon, lonlat.lat),
+                       new OpenLayers.LonLat(lonlat.lon, lonlat.lat).transform(new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection("EPSG:900913")),
                         null,
                           data,
                     null,
@@ -125,7 +125,7 @@ vcontrol = new OpenLayers.Control.EditingToolbar(vlayer);
 
                 trigger: function (e) {
                     var crop, pnt;
-                    var lonlat = map.getLonLatFromPixel(e.xy);
+                    var lonlat = map.getLonLatFromPixel(e.xy).transform(new OpenLayers.Projection("EPSG:900913"), new OpenLayers.Projection("EPSG:4326"));
 
                     var event = {
                         lonlat: lonlat

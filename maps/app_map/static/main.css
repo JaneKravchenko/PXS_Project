@@ -251,6 +251,15 @@ div.olControlZoom a, div.olControlTextButtonPanel .olButton{
     top: 78px;
 }
 
+#dist{
+    background-color: rgba(255, 255, 255, 0.4);
+    border: none;
+    color: rgba(0, 0, 0, 0.84);
+    position: absolute;
+    left: 550px;
+    top: 78px;
+}
+
 #cl{
     background-color: rgba(255, 255, 255, 0.4);
     border: none;
@@ -270,6 +279,15 @@ div.olControlZoom a, div.olControlTextButtonPanel .olButton{
     top: 108px;
 }
 
+#distance{
+    background-color: rgba(255, 255, 255, 0.4);
+    border: none;
+    min-width: 250px;
+    position: absolute;
+    left: 527px;
+    top: 108px;
+}
+
 
 
 .olControlEditingToolbar .olControlDrawFeaturePointItemInactive{
@@ -282,13 +300,27 @@ div.olControlZoom a, div.olControlTextButtonPanel .olButton{
 
 .olControlEditingToolbar .olControlDrawFeaturePolygonItemInactive{
     position: absolute;
-    top: 10px;!important;
+    top: 11px;!important;
 
 }
 
 .olControlEditingToolbar .olControlDrawFeaturePolygonItemActive{
     position: absolute;
-    top: 10px;!important;
+    top: 11px;!important;
+
+}
+
+.olControlEditingToolbar .olControlDrawFeaturePathItemActive{
+    position: absolute;
+    top: 11px;!important;
+    left: 236px; !important;
+
+}
+
+.olControlEditingToolbar .olControlDrawFeaturePathItemInactive{
+    position: absolute;
+    top: 11px;!important;
+    left: 236px; !important;
 
 }
 .olControlEditingToolbar{

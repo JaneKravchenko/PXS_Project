@@ -2,6 +2,6 @@ from django.contrib.gis import admin
 
 
 
-from .models import Cnotozymi
+from .models import Finalelim
 
-admin.site.register(Cnotozymi)
+admin.site.register(Finalelim)

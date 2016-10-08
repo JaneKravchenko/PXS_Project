@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<div id = "tab1" style="color: #000000; ">
+    Відстань: {{ distance }} кілометра</br>
+<button onclick="clear_t()" style="background: transparent; border: transparent; color: #0D3349;">Приховати відстань</button>
+  </div>
+<script>
+
+    function clear_t() {
+    document.getElementById('tab1').innerHTML = '';
+        vlayer.destroyFeatures(vlayer.features[0]);
+
+}
+</script>
+</body>
+</html>

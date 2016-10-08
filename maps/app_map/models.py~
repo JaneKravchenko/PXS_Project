@@ -9,13 +9,3 @@ class Cnotozymi(models.Model):
     hatrv_inga=models.FloatField()
     geom=models.MultiPolygonField()
 
-
-class Finalelim(models.Model):
-    gid = models.IntegerField(primary_key = True)
-    id = models.IntegerField()
-    gridcode = models.IntegerField()
-    area_ha = models.FloatField()
-    comment = models.CharField(max_length=50)
-    geom = models.MultiPolygonField()
-
-

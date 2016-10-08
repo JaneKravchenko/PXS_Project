@@ -16,13 +16,14 @@
     <th></th>
     </tr>
     <tr>
-    <td>Номер поля:    </td><td>{{ object.id}}</td></tr>
-    <tr>
-    <td>Культура:    </td><td>{{ object.comment }}</td>
+    <td>Культура:    </td><td>{{ object.crop }}</td>
   </tr>
     <tr>
-    <td>Площа поля:    </td><td>{{ object.area_ha}}</td></tr>
-
+    <td>Площа поля:    </td><td>{{ object.s_ga}}</td></tr>
+    <tr>
+    <td>Урожай за рік    </td><td>{{ object.harvest}}</td></tr>
+    <tr>
+    <td>Середній збір:    </td><td>{{ object.hatrv_inga}}</td></tr>
 </table>
 
 {% endif %}
