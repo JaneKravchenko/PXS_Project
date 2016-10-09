@@ -21,13 +21,7 @@
             <li><input type="checkbox" id= "son" />Соняшник </li>
 	    <li><input type="checkbox" id= "inshi" />Інші </li>
           </ul></br>
-            <span class="anchor">Оберіть растр</span>
-          <ul class="nav nav-sidebar">
-
-            <li><input type="checkbox" id = 'zvich' checked/>Знімок звичайний</li>
-            <li><input type="checkbox" id = "ndvi"/>Знімок NDVI</li>
-
-        </ul></br>
+           
              <span class="anchor">Оберіть карту</span>
 
           <ul class="nav nav-sidebar">
@@ -37,11 +31,11 @@
     Гугл карта
   </label>
                   <label>
-    <input type="checkbox"    id = "sat"  >
+    <input type="checkbox"    id = "sat"  checked>
     Супутниковий знімок
   </label>
                   <label>
-    <input type="checkbox"  id="simple" checked>
+    <input type="checkbox"  id="simple" >
     Проста карта
   </label>
 </div>
@@ -256,15 +250,9 @@ var phys = new OpenLayers.Layer.Google(
                 "Google Streets", // the default
                 {numZoomLevels: 20});
 
- var wms = new OpenLayers.Layer.WMS( "OpenLayers WMS",
-  "http://vmap0.tiles.osgeo.org/wms/vmap0",
-  {'layers':'basic', 'projection': 'map.displayProjection', tiled: true} );
+map.addLayers([gsat, vlayer]);
 
-  tiled = new OpenLayers.Layer.WMS(
-                    "pixelsolution:gtif - Tiled", "http://localhost:8080/geoserver/pixelsolution/wms",
-                    { transparent: 'true', layers:'pixelsolution:gtif',
-        format: "image/png", tiled:true});
-	map.addLayers([st, phys, gsat, tiled, vlayer]);
+
 
 
 
@@ -348,14 +336,7 @@ var check6 = document.querySelector('#google');
         };
 
 
-var check5 = document.querySelector('#zvich');
-        check5.onclick = function() {
-        if (check5.checked) {
-         map.addLayer(tiled);
-        } else {
-            map.removeLayer(tiled);
-         }
-        };
+
 
         var check7 = document.querySelector('#sat');
         check7.onclick = function() {
